@@ -1,0 +1,62 @@
+<?php echo $this->view->partial('common/page-header'); ?>
+<div class="page-content">
+    <?php
+    echo $this->view->partial('common/navbar');
+    if ($users->count() > 0):
+        ?>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped mb-4">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>
+                        <th>Usuário</th>
+                        <th>E-mail</th>
+                        <th>Status</th>
+                        <th>Criado Em</th>
+                        <th colspan="2"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                    foreach ($users as $user):
+                        $status = Status::findFirst($user->status_id);
+                        ?>
+                        <tr>
+                            <td><?php echo $user->id; ?></td>
+                            <td><?php echo $user->first_name; ?></td>
+                            <td><?php echo $user->last_name; ?></td>
+                            <td><?php echo $user->username; ?></td>
+                            <td><?php echo $user->email_address; ?></td>
+                            <td><?php echo $status->status_name; ?></td>
+                            <td><?php echo DateLibrary::dataHoraMysqlParaDataHoraBrasileira($user->created_at); ?></td>
+                            <td>
+                                <button type="button" id="btn_update_register" class="btn btn-success">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" id="btn_delete_register" class="btn btn-danger">
+                                    <i class="fa fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <?php 
+                    endforeach; 
+                    ?>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="9">Usuários Cadastrados <span class="badge badge-danger"><?php echo $users->count(); ?></span></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <button type="button" id="btn_cancel_register" class="btn btn-md btn-danger">
+            <i class="fa fa-remove" aria-hidden="true"></i> Cancelar
+        </button>
+        <?php
+    endif;
+    ?>
+</div>

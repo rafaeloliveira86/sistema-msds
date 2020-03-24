@@ -1,0 +1,10 @@
+<center>
+    <img src="<?php echo $this->url->get('img/logotipo.png') ?>" alt="Logotipo MSDS" width="200" height="65" class="mb-4">
+</center>
+<div class="underline underline-left"></div>
+<blockquote class="blockquote text-center">
+    <p class="mb-0"><i class="<?php echo $headerIcon; ?>"></i> <?php echo $headerTitle; ?></p>
+    <footer class="blockquote-footer text-danger"><?php echo $headerText; ?></footer>
+</blockquote>
+<div class="underline underline-right"></div>
+<small class="pull-right mb-0"><?php echo DateLibrary::exibirMensagemCumprimento() . "<br>" . DateLibrary::exibirDataEmTexto() ?></small>

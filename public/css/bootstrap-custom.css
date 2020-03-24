@@ -1,0 +1,32 @@
+/*Bootstrap Custom */
+.btn-pink {
+    color: #fff;
+    background-color: #f26d7d;
+    border-color: #f26d7d;
+}
+.btn-pink:hover {
+    color: #fff;
+    background-color: #eeaaab;
+    border-color: #eeaaab;
+}
+.btn-pink:focus, .btn-pink.focus {
+    color: #fff;
+    background-color: #eeaaab;
+    border-color: #eeaaab;
+    box-shadow: 0 0 0 0.2rem rgba(231, 82, 78, 0.5);
+}
+.btn-pink.disabled, .btn-pink:disabled {
+    color: #fff;
+    background-color: #e3342f;
+    border-color: #e3342f;
+}
+.btn-pink:not(:disabled):not(.disabled):active,
+.btn-pink:not(:disabled):not(.disabled).active,
+.show > .btn-pink.dropdown-toggle {
+    color: #fff;
+    background-color: #eeaaab;
+    border-color: #eeaaab;
+}
+.btn-pink:not(:disabled):not(.disabled):active:focus,
+.btn-pink:not(:disabled):not(.disabled).active:focus,
+.show > .btn-pink.dropdown-toggle:focus { box-shadow: 0 0 0 0.2rem rgba(231, 82, 78, 0.5); }
