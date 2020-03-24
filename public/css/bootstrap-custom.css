@@ -30,3 +30,9 @@
 .btn-pink:not(:disabled):not(.disabled):active:focus,
 .btn-pink:not(:disabled):not(.disabled).active:focus,
 .show > .btn-pink.dropdown-toggle:focus { box-shadow: 0 0 0 0.2rem rgba(231, 82, 78, 0.5); }
+
+/* Footer */
+.mastfoot {
+    text-align: center;
+    padding-bottom: 20px;
+}

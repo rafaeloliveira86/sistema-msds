@@ -33,9 +33,11 @@ class CreateForm extends Form {
         $this->add($username);
         //E-mail
         $email_address = new Email("email_address");
-        $email_address->addValidator(new PresenceOf(['message' => 'O campo (E-mail) é obrigatório']));
-        $email_address->addValidator(new Confirmation(['message' => "Os E-mails não correspondem", 'with' => 'email_address_confirm']));
-        $email_address->addValidator(new EmailValidate(['message' => 'O E-mail informado é inválido']));
+        $email_address->addValidators([
+            new PresenceOf(['message' => 'O campo (E-mail) é obrigatório']),
+            new Confirmation(['message' => "Os E-mails não correspondem", 'with' => 'email_address_confirm']),
+            new EmailValidate(['message' => 'O E-mail informado é inválido'])
+        ]);
         $this->add($email_address);
         //Confirmar E-mail
         $email_address_confirm = new Email("email_address_confirm");
@@ -43,16 +45,20 @@ class CreateForm extends Form {
         $this->add($email_address_confirm);
         //Senha
         $password = new Password('password');
-        $password->addValidator(new StringLength(['min' => 6, 'messageMinimum' => 'O campo (Senha) exige o mínimo de 6 caracteres']));
-        $password->addValidator(new StringLength(['max' => 8, 'messageMaximum' => 'O campo (Senha) exige o máximo de 8 caracteres']));
-        $password->addValidator(new PresenceOf(['message' => 'O campo (Senha) é obrigatório']));
-        $password->addValidator(new Confirmation(['message' => "As senhas não correspondem", 'with' => 'password_confirm']));
+        $password->addValidators([
+            new StringLength(['min' => 6, 'messageMinimum' => 'O campo (Senha) exige o mínimo de 6 caracteres']),
+            new StringLength(['max' => 8, 'messageMaximum' => 'O campo (Senha) exige o máximo de 8 caracteres']),
+            new PresenceOf(['message' => 'O campo (Senha) é obrigatório']),
+            new Confirmation(['message' => "As senhas não correspondem", 'with' => 'password_confirm'])
+        ]);
         $this->add($password);
         //Confirmar Senha
         $password_confirm = new Password('password_confirm');
-        $password_confirm->addValidator(new StringLength(['min' => 6, 'messageMinimum' => 'O campo (Confirmar Senha) exige o mínimo de 6 caracteres']));
-        $password_confirm->addValidator(new StringLength(['max' => 8, 'messageMaximum' => 'O campo (Confirmar Senha) exige o máximo de 8 caracteres']));
-        $password_confirm->addValidator(new PresenceOf(['message' => 'O campo (Confirmar Senha) é obrigatório']));
+        $password_confirm->addValidators([
+            new StringLength(['min' => 6, 'messageMinimum' => 'O campo (Confirmar Senha) exige o mínimo de 6 caracteres']),
+            new StringLength(['max' => 8, 'messageMaximum' => 'O campo (Confirmar Senha) exige o máximo de 8 caracteres']),
+            new PresenceOf(['message' => 'O campo (Confirmar Senha) é obrigatório'])
+        ]);
         $this->add($password_confirm);
         //Status
         $status_id = new Select('status_id',

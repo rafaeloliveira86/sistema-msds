@@ -8,13 +8,13 @@
             <table class="table table-bordered table-striped mb-4">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>Sobrenome</th>
-                        <th>Usuário</th>
-                        <th>E-mail</th>
-                        <th>Status</th>
-                        <th>Criado Em</th>
+                        <th class="text-uppercase">Código</th>
+                        <th class="text-uppercase">Nome</th>
+                        <th class="text-uppercase">Sobrenome</th>
+                        <th class="text-uppercase">Usuário</th>
+                        <th class="text-uppercase">E-mail</th>
+                        <th class="text-uppercase">Status</th>
+                        <th class="text-uppercase">Criado Em</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -60,3 +60,4 @@
     endif;
     ?>
 </div>
+<?php echo $this->view->partial('common/page-footer'); ?>
