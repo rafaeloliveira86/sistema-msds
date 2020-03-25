@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/xampp/htdocs/phalcon/sistema-msds/app/controllers/AuthController.php</file>
+            <file>file:/C:/xampp/htdocs/phalcon/sistema-msds/app/views/user/select.phtml</file>
             <file>file:/C:/xampp/htdocs/phalcon/sistema-msds/public/js/main.js</file>
             <file>file:/C:/xampp/htdocs/phalcon/sistema-msds/app/controllers/UserController.php</file>
             <file>file:/C:/xampp/htdocs/phalcon/sistema-msds/app/views/user/create.phtml</file>
             <file>file:/C:/xampp/htdocs/phalcon/sistema-msds/app/views/index.phtml</file>
-            <file>file:/C:/xampp/htdocs/phalcon/sistema-msds/app/forms/CreateForm.php</file>
+            <file>file:/C:/xampp/htdocs/phalcon/sistema-msds/app/DAO/UserDAO.php</file>
             <file>file:/C:/xampp/htdocs/phalcon/sistema-msds/app/config/router.php</file>
         </group>
     </open-files>

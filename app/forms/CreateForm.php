@@ -13,7 +13,6 @@ use Phalcon\Validation\Validator\Identical;
 use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\Confirmation;
 use Phalcon\Validation\Validator\Email as EmailValidate;
-use Phalcon\Validation\Validator\Identical as Equals;
 use Phalcon\Validation\Validator\StringLength;
 
 class CreateForm extends Form {

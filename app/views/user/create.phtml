@@ -1,16 +1,19 @@
 <?php echo $this->view->partial('common/page-header'); ?>
 <div class="page-content">
-    <?php 
-    echo $this->view->partial('common/navbar');
-    if (isset($message)):
+    <?php
+    if ($this->session->has('IS_LOGIN')):
+        echo $this->view->partial('common/navbar');
+    endif;
+    if (isset($alert)):
         ?>
-        <div class="alert alert-<?php echo $class; ?>" role="alert">
-            <?php echo $message; ?>
+        <div class="alert alert-<?php echo $alert['class']; ?>" role="alert">
+            <?php echo $alert['message']; ?>
         </div>
         <?php
     endif;
     ?>    
-    <form method="POST" action="<?php echo $this->url->get('user/create'); ?>">
+    <!--<form method="POST" action="<?php echo $this->url->get('auth/create'); ?>">-->
+    <form id="form_create" method="POST">
         <!-- Campo Hidden -->
         <?php echo $form->render('created_by_user_id'); ?>
         <?php echo $form->render('created_at'); ?>
@@ -98,12 +101,21 @@
                 </div>
             </div>
         </div>
-        <button type="submit" id="btn_save_register" class="btn btn-md btn-pink">
+        <!--<button type="submit" id="btn_save_register" class="btn btn-md btn-pink">
+            <i class="fa fa-save" aria-hidden="true"></i> Salvar
+        </button>-->
+        <button type="button" id="btn_save_register" class="btn btn-md btn-pink">
             <i class="fa fa-save" aria-hidden="true"></i> Salvar
         </button>
-        <button type="button" id="btn_cancel_register" class="btn btn-md btn-danger">
-            <i class="fa fa-remove" aria-hidden="true"></i> Cancelar
-        </button>
+        <?php
+        if (!$this->session->has('IS_LOGIN')):
+            ?>
+            <button type="button" id="btn_cancel_register" class="btn btn-md btn-danger float-right">
+                <i class="fa fa-remove" aria-hidden="true"></i> Cancelar
+            </button>
+            <?php
+        endif;
+        ?>
     </form>
 </div>
 <?php echo $this->view->partial('common/page-footer'); ?>

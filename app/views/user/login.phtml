@@ -1,16 +1,29 @@
-<form class="form-signin" method="POST" action="">
+<!--<form id="form_login" class="form-signin" method="POST" action="<?php //echo $this->url->get('auth/index'); ?>">-->
+<form id="form_login" class="form-signin" method="POST">
     <center>
-        <img class="mb-3" src="<?php echo $this->url->get('img/logotipo.png') ?>" alt="Logotipo MSDS" width="200" height="65">
+        <img class="mb-3" src="<?php echo $this->url->get('img/logotipo.png'); ?>" alt="Logotipo MSDS" width="200" height="65">
     </center>
     <p class="lead text-center mb-4">
         <i class="fa fa-lock"></i> Acesso Restrito
     </p>
-    <label for="email" class="sr-only">Nome</label>
-    <?php echo $form->render('email', ['class' => 'form-control', 'placeholder' => 'E-mail']); ?>
+    <?php
+    if (isset($alert)) {
+        ?>
+        <div class="alert alert-<?php echo $alert['class']; ?>" role="alert">
+            <?php echo $alert['message']; ?>
+        </div>
+        <?php
+    }
+    ?>
+    <label for="email_address" class="sr-only">Nome</label>
+    <?php echo $form->render('email_address', ['class' => 'form-control', 'placeholder' => 'E-mail']); ?>
     <label for="password" class="sr-only">Sobrenome</label>
     <?php echo $form->render('password', ['class' => 'form-control mb-4', 'placeholder' => 'Senha']); ?>    
+    <!--<button type="submit" id="btn_login" class="btn btn-lg btn-pink btn-block mb-2">
+        <i class="fa fa-sign-in" aria-hidden="true"></i> Login
+    </button>-->
     <button type="button" id="btn_login" class="btn btn-lg btn-pink btn-block mb-2">
         <i class="fa fa-sign-in" aria-hidden="true"></i> Login
     </button>
-    <?php echo $this->tag->linkTo('user/create', 'Cadastre-se'); ?>
+    <?php echo $this->tag->linkTo('auth/create', 'Cadastre-se'); ?>
 </form>

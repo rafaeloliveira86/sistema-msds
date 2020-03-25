@@ -12,14 +12,16 @@ $router = $di->getRouter();
 ]);*/
 
 //Rota Default
-$router->setDefaults(['controller' => 'User', 'action' => 'index']);
+$router->setDefaults(['controller' => 'Auth', 'action' => 'index']);
 
 //Erro 404
-//$router->notFound(['controller' => 'User', 'action' => 'notFound']);
+$router->notFound(['controller' => 'User', 'action' => 'notFound']);
 
+//Authenticate
+$router->add('/login', ['controller' => 'Auth', 'action' => 'login']);
+$router->add('/logout', ['controller' => 'Auth', 'action' => 'logout']);
+$router->add('/create', ['controller' => 'Auth', 'action' => 'create']);
 //User
-$router->add('/login', ['controller' => 'User', 'action' => 'login']);
-$router->add('/create', ['controller' => 'User', 'action' => 'create']);
 $router->add('/select', ['controller' => 'User', 'action' => 'select']);
 $router->add('/update', ['controller' => 'User', 'action' => 'update']);
 $router->add('/delete', ['controller' => 'User', 'action' => 'delete']);

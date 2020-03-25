@@ -18,6 +18,7 @@ return new \Phalcon\Config([
     ],
     'application' => [
         'appDir'         => APP_PATH . '/',
+        'DAODir'         => APP_PATH . '/DAO/',
         'controllersDir' => APP_PATH . '/controllers/',
         'modelsDir'      => APP_PATH . '/models/',
         'formsDir'       => APP_PATH . '/forms/',

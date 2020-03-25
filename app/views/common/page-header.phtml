@@ -7,4 +7,31 @@
     <footer class="blockquote-footer text-danger"><?php echo $headerText; ?></footer>
 </blockquote>
 <div class="underline underline-right"></div>
-<small class="pull-right mb-0"><?php echo DateLibrary::exibirMensagemCumprimento() . "<br>" . DateLibrary::exibirDataEmTexto() ?></small>
+<div class="row">
+    <div class="col-md-6">
+        <small class="float-left mb-0">
+            <?php echo DateLibrary::exibirMensagemCumprimento(); ?>
+        </small>
+        <br>
+        <small class="float-left mb-0">
+            <?php echo DateLibrary::exibirDataEmTexto(); ?>
+        </small>
+    </div>
+    <?php
+    if ($this->session->has('IS_LOGIN')):
+        ?>
+        <div class="col-md-6">
+            <small class="float-right mb-0">
+                <i class="fa fa-user"></i>&nbsp;
+                <?php echo $this->session->get('AUTH_FIRST_NAME')." ".$this->session->get('AUTH_LAST_NAME'); ?>
+            </small>
+            <br>
+            <small class="float-right mb-0 text-danger">
+                <i class="fa fa-envelope"></i>&nbsp;
+                <?php echo $this->session->get('AUTH_EMAIL_ADDRESS'); ?>
+            </small>
+        </div>
+        <?php
+    endif;
+    ?>
+</div>
