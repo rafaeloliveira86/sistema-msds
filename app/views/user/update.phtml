@@ -1,96 +1,93 @@
-<?php echo $this->view->partial('common/page-header'); ?>
-<div class="page-content">
-    <?php echo $this->view->partial('common/navbar'); ?>
-    <form method="POST" action="<?php echo $this->url->getBaseUri(); ?>user/register">
+<!--<form method="POST" action="<?php //echo $this->url->get('user/update'); ?>">-->
+<form id="form_update" method="POST">
+    <div class="modal-header">
         <div class="row">
-            <div class="col-md-6">
-                <label for="first_name">Nome</label>
-                <div class="input-group mb-4">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-pencil"></i></div>
-                    </div>
-                    <?php echo $form->render('first_name', ['class' => 'form-control']); ?>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <label for="last_name">Sobrenome</label>
-                <div class="input-group mb-4">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-pencil"></i></div>
-                    </div>
-                    <?php echo $form->render('last_name', ['class' => 'form-control']); ?>
-                </div>
-            </div>
+            <h5 class="modal-title">
+                <i class="fa fa-edit"></i>&nbsp;
+                <?php echo $headerTitle; ?>
+                <br>
+                <small class="text-dangert"><?php echo $headerText; ?></small>
+            </h5>
         </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
         <div class="row">
-            <div class="col-md-6">
-                <label for="username">Nome de Usuário</label>
-                <div class="input-group mb-4">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-user"></i></div>
-                    </div>
-                    <?php echo $form->render('username', ['class' => 'form-control']); ?>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <label for="status_id">Status</label>
-                <div class="input-group mb-4">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-list"></i></div>
-                    </div>
-                    <?php echo $form->render('status_id', ['class' => 'form-control']); ?>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <label for="email_adress">E-mail</label>
-                <div class="input-group mb-4">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-envelope"></i></div>
-                    </div>
-                    <?php echo $form->render('email_adress', ['class' => 'form-control']); ?>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <label for="email_adress_confirm">Confirmar E-mail</label>
-                <div class="input-group mb-4">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-envelope"></i></div>
-                    </div>
-                    <?php echo $form->render('email_adress_confirm', ['class' => 'form-control']); ?>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-6">
-                        <label for="password">Senha</label>
-                        <div class="input-group mb-4">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text"><i class="fa fa-lock"></i></div>
-                            </div>
-                            <?php echo $form->render('password', ['class' => 'form-control']); ?>
+                    <label for="first_name">Nome</label>
+                    <div class="input-group mb-4">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa fa-pencil"></i></div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="password_confirm">Confirmar Senha</label>
-                        <div class="input-group mb-4">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text"><i class="fa fa-lock"></i></div>
-                            </div>
-                            <?php echo $form->render('password_confirm', ['class' => 'form-control']); ?>
-                        </div>
+                        <?php echo $form->render('first_name', ['class' => 'form-control', 'value' => $user["first_name"]]); ?>
                     </div>
                 </div>
             </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <label for="last_name">Sobrenome</label>
+                    <div class="input-group mb-4">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa fa-pencil"></i></div>
+                        </div>
+                        <?php echo $form->render('last_name', ['class' => 'form-control', 'value' => $user["last_name"]]); ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <label for="username">Nome de Usuário</label>
+                    <div class="input-group mb-4">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa fa-user"></i></div>
+                        </div>
+                        <?php echo $form->render('username', ['class' => 'form-control', 'value' => $user["username"]]); ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <label for="status_id">Status</label>
+                    <div class="input-group mb-4">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa fa-list"></i></div>
+                        </div>
+                        <?php echo $form->render('status_id', ['class' => 'form-control', 'value' => $user["status_id"]]); ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <label for="email_address">E-mail</label>
+                    <div class="input-group mb-4">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa fa-envelope"></i></div>
+                        </div>
+                        <?php echo $form->render('email_address', ['class' => 'form-control', 'value' => $user["email_address"]]); ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <label for="password">Senha</label>
+                    <div class="input-group mb-4">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                        </div>
+                        <?php echo $form->render('password', ['class' => 'form-control', 'value' => $user["password"]]); ?>
+                    </div>
+                </div>
+            </div>
+            
         </div>
-        <button type="submit" id="btn_save_register" class="btn btn-md btn-pink">
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-md btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" id="btn_update_register_modal" class="btn btn-md btn-pink">
             <i class="fa fa-save" aria-hidden="true"></i> Salvar
         </button>
-        <button type="button" id="btn_cancel_register" class="btn btn-md btn-danger">
-            <i class="fa fa-remove" aria-hidden="true"></i> Cancelar
-        </button>
-    </form>
-</div>
+    </div>
+</form>

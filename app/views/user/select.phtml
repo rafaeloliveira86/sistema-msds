@@ -2,12 +2,20 @@
 <div class="page-content">
     <?php
     echo $this->view->partial('common/navbar');
+    if (isset($alert)):
+        ?>
+        <div class="alert alert-<?php echo $alert['class']; ?>" role="alert">
+            <?php echo $alert['message']; ?>
+        </div>
+        <?php
+    endif;
     if ($users->count() > 0):
         ?>
         <div class="table-responsive">
-            <table class="table table-bordered table-striped mb-0">
+            <table class="table table-bordered table-striped mb-0" style="font-size: 14px;">
                 <thead class="thead-dark">
                     <tr>
+                        <th class="text-uppercase">Código</th>
                         <th class="text-uppercase">Nome</th>
                         <th class="text-uppercase">Sobrenome</th>
                         <th class="text-uppercase">Usuário</th>
@@ -18,30 +26,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
+                    <?php
                     foreach ($users as $user):
                         $status = Status::findFirst($user->status_id);
-                        ?>
-                        <tr>
-                            <td><?php echo $user->first_name; ?></td>
-                            <td><?php echo $user->last_name; ?></td>
-                            <td><?php echo $user->username; ?></td>
-                            <td><?php echo $user->email_address; ?></td>
-                            <td><?php echo $status->status_name; ?></td>
-                            <td><?php echo DateLibrary::dataHoraMysqlParaDataHoraBrasileira($user->created_at); ?></td>
-                            <td>
-                                <button type="button" id="btn_update_register" class="btn btn-success">
-                                    <i class="fa fa-edit"></i>
-                                </button>
-                            </td>
-                            <td>
-                                <a href="<?php echo $this->url->get('user/select/?cod='.$user->id); ?>" id="btn_delete_register" class="btn btn-danger">
-                                    <i class="fa fa-trash-alt"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <?php 
-                    endforeach; 
+                        if ($user->status_id != 1):
+                            ?>
+                            <tr>
+                                <td class="cod"><?php echo $user->id; ?></td>
+                                <td><?php echo $user->first_name; ?></td>
+                                <td><?php echo $user->last_name; ?></td>
+                                <td><?php echo $user->username; ?></td>
+                                <td><?php echo $user->email_address; ?></td>
+                                <td><?php echo $status->status_name; ?></td>
+                                <td><?php echo DateLibrary::dataHoraMysqlParaDataHoraBrasileira($user->created_at); ?></td>
+                                <td>
+                                    <button type="button" id="btn_update_register" data-toggle="modal" aria-hidden="true" class="btn btn-success btn-sm">
+                                        <i class="fa fa-edit"></i>
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button" id="btn_delete_register" class="btn btn-danger btn-sm">
+                                        <i class="fa fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <?php
+                        endif;
+                    endforeach;
                     ?>
                 </tbody>
                 <tfoot>
