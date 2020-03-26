@@ -96,7 +96,7 @@ class CreateForm extends Form {
         }
         $this->add($create_by_user_id);
         //Data de Cadastro
-        $created_at = new Hidden('created_at', ['value' => date('Y-m-d 00:00:00')]);
+        $created_at = new Hidden('created_at', ['value' => date('Y-m-d H:i:s')]);
         $this->add($created_at);
     }
 }

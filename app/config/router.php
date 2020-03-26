@@ -25,5 +25,9 @@ $router->add('/create', ['controller' => 'Auth', 'action' => 'create']);
 $router->add('/select', ['controller' => 'User', 'action' => 'select']);
 $router->add('/update', ['controller' => 'User', 'action' => 'update']);
 $router->add('/delete', ['controller' => 'User', 'action' => 'delete']);
+$router->add('/delete/update', ['controller' => 'User', 'action' => 'deleteupdate']);
+
+//Show Modal
+$router->add('/showmodal', ['controller' => 'User', 'action' => 'showmodal']);
 
 $router->handle($_SERVER['REQUEST_URI']);

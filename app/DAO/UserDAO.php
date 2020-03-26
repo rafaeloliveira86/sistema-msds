@@ -42,15 +42,15 @@ class UserDAO extends Controller {
         ";
         $this->pdo = $this->di->getDb();
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(':id', $param->id, PDO::PARAM_INT);
-        $stmt->bindParam(':first_name', $param->first_name, PDO::PARAM_STR);
-        $stmt->bindParam(':last_name', $param->last_name, PDO::PARAM_STR);
-        $stmt->bindParam(':username', $param->username, PDO::PARAM_STR);
-        $stmt->bindParam(':email_address', $param->email_address, PDO::PARAM_STR);
-        $stmt->bindParam(':password', $param->password, PDO::PARAM_STR);
-        $stmt->bindParam(':status_id', $param->status_id, PDO::PARAM_INT);
-        $stmt->bindParam(':update_by_user_id', $param->update_by_user_id, PDO::PARAM_INT);
-        $stmt->bindParam(':updated_at', $param->updated_at, PDO::PARAM_STR);
+        $stmt->bindParam(':id', $param['id'], PDO::PARAM_INT);
+        $stmt->bindParam(':first_name', $param['first_name'], PDO::PARAM_STR);
+        $stmt->bindParam(':last_name', $param['last_name'], PDO::PARAM_STR);
+        $stmt->bindParam(':username', $param['username'], PDO::PARAM_STR);
+        $stmt->bindParam(':email_address', $param['email_address'], PDO::PARAM_STR);
+        $stmt->bindParam(':password', $param['password'], PDO::PARAM_STR);
+        $stmt->bindParam(':status_id', $param['status_id'], PDO::PARAM_INT);
+        $stmt->bindParam(':update_by_user_id', $param['update_by_user_id'], PDO::PARAM_INT);
+        $stmt->bindParam(':updated_at', $param['updated_at'], PDO::PARAM_STR);
         $stmt->execute();
     }
 
@@ -70,11 +70,19 @@ class UserDAO extends Controller {
         $stmt->execute();
     }
     
-    public function deleteRegDefault($param) {
+    public function deleteRegUser($param) {
         $sql = "DELETE FROM user WHERE id = :id";
         $this->pdo = $this->di->getDb();
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(':id', $param, PDO::PARAM_INT);   
+        $stmt->bindParam(':id', $param['id'], PDO::PARAM_INT);   
+        $stmt->execute();
+    }
+    
+    public function deleteRegUserAccess($param) {
+        $sql = "DELETE FROM user_access WHERE user_id = :id";
+        $this->pdo = $this->di->getDb();
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':id', $param['id'], PDO::PARAM_INT);   
         $stmt->execute();
     }
 }

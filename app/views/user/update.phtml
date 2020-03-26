@@ -1,5 +1,9 @@
 <!--<form method="POST" action="<?php //echo $this->url->get('user/update'); ?>">-->
 <form id="form_update" method="POST">
+    <!-- Campo Hidden -->
+    <?php echo $form->render('update_by_user_id'); ?>
+    <?php echo $form->render('updated_at'); ?>
+    <input type="hidden" id="id" name="id" value="<?php echo $id; ?>" />
     <div class="modal-header">
         <div class="row">
             <h5 class="modal-title">

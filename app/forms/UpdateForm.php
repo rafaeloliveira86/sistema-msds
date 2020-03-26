@@ -82,7 +82,7 @@ class UpdateForm extends Form {
         }
         $this->add($update_by_user_id);
         //Data de Atualização
-        $updated_at = new Hidden('updated_at', ['value' => date('Y-m-d 00:00:00')]);
+        $updated_at = new Hidden('updated_at', ['value' => date('Y-m-d H:i:s')]);
         $this->add($updated_at);
     }
 }

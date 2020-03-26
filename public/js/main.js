@@ -45,7 +45,7 @@ $(document).ready(function() {
             let userId = $(this).closest('tr').find('.cod').text();
             saveToStorage(userId);
             let user_id = JSON.parse(localStorage.getItem('data'));
-            $.post(baseUri+'update', { id: user_id }, function(data) {
+            $.post(baseUri+'showmodal', { act: 1, id: user_id }, function(data) {
                 $("#modal").modal('show');          
                 $(".modal-content").html(data);
             });
@@ -67,8 +67,11 @@ $(document).ready(function() {
         },
         function (dismiss) {
             if (dismiss === 'timer') { //dismiss pode ser 'cancel', 'overlay', 'close' e 'timer'
-                $('#form_update').attr('action', baseUri+'update');
-                $('#form_update').submit();
+                swal('Confirmado!', 'Usuário atualizado com sucesso!', 'success');
+                $('.swal2-confirm').on('click', function() {
+                    $('#form_update').attr('action', baseUri+'update');
+                    $('#form_update').submit();
+                });
             }
         });
     });
@@ -94,7 +97,8 @@ $(document).ready(function() {
             }).then(function() {
                 $.ajax({
                     method: "POST",
-                    url: baseUri+'delete',
+                    //url: baseUri+'delete',
+                    url: baseUri+'delete/update',
                     data: {
                         id: userId
                     },
