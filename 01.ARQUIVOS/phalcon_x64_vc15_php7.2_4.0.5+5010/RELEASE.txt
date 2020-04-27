@@ -1,8 +1,0 @@
-Release date: 2020-03-07T18:50:10.6207746+00:00
-Release version: 4.0.5+5010
-Git commit: d3e94630156a0c4441bf5f72e6ed071941c5908b
-Commit date: 2020-03-07T18:25:21.0000000Z
-Build type: Win32
-Platform: x64
-Target PHP version: 7.2
-Build worker image: Visual Studio 2015
